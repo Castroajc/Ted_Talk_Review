@@ -3,45 +3,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
-	<head>
-	<style>
-		.button {
-		background-color: #9370DB; 
-		border: 1px solid black;
-		color: white;
-		padding: 15px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		float: left;
-		}
-		.button2 {
-		background-color: #9370DB; 
-		border: 1px solid black;
-		color: white;
-		padding: 15px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		}
-	</style>
-		
+	<head>		
 		<title>TedTalkReviews</title>
-		<style type = "text/css">
-		body{
-		background-color: #ADD8E6;
-		}
-		h1{
-		text-align: center;
-		color: purple;
-		} 
-		</style>
-	</head>
+		<jsp:include page ="CSS/homePage.css"/>	<!-- ALTERNATIVE TO USEING HREFS-->			
+ 	</head>
 	
 	<body>
+		<span class = "images">
+			<a href = https://www.ted.com target = blank>
+			<img src = "images/TedTalk.png" align = "left" width = 200 height = 150 >
+			</a>
+			<a href = https://my.ycp.edu target = blank>
+			<img src = "images/YorkCollge.png" align = "right" width = 200 height = 150 >
+			</a>			
+		</span>
 		<h1>TedTalk Reviews</h1>
+		<hr>		
 		<form action = "${pageContext.servletContext.contextPath}/profile" method="get">
 		<input type = "Submit" name = "redirectProfile" class="button" value = "Profile">
 		</form>
@@ -50,11 +27,19 @@
 		</form>
 		<br><br><br>
 		<hr>
-		<p> THIS IS AN EXAMPLE OF A REQUEST</p>
-		<form action="${pageContext.servletContext.contextPath}/request" method="get"> 
-		<input type = "Submit" name = "redirectReview" class="button2" value = "Reviews">
-		</form>
-		
+		<h2>Suggested TEDTalks:</h2>
+		<p>What your peers are viewing:</p>
+		<ul id = "links"><!-- THE HREF SHOULD GO TO A LINK THAT AUTO-FILLS THE REVIEW PAGE WITH THE CORRESPONDING TED TALK -->
+			<li><a href="https://www.ted.com/talks/anupam_mishra_the_ancient_ingenuity_of_water_harvesting" target = blank>Ingenuity of water harvesting</a></li>
+			<li><a href="https://www.ted.com/talks/norman_foster_s_green_agenda" target = blank>Norman Foster's Green Agenda</a></li>
+			<li><a href="https://www.ted.com/talks/majd_mashharawi_how_i_m_making_bricks_out_of_ashes_and_rubble_in_gaza" target = blank>Rubble in Gaza</a></li>
+		</ul>		
+		<div class = "searchSection">
+			<p>Don't like what's trending? Try searching our database</p>
+			<form action="${pageContext.servletContext.contextPath}" method="get"> 
+			<input type = "Submit" name = "searchPage" class="button2" value = "search">
+			</form>
+		</div>
 		<hr>
 		
 	</body>
